@@ -11,26 +11,27 @@ public class MantenedorCliente extends Conexion implements IConsultasCliente {
     public ArrayList<Cliente> listarCliente() {
 
         conectar();
-        ArrayList<Cliente> lista_cli = new ArrayList<Cliente>();
+        ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
         try {
             ResultSet result = state.executeQuery("SELECT * FROM cliente;");
             while (result.next()) {
                 Cliente cli = new Cliente();
                 cli.setNombre(result.getString(2));
                 cli.setTelefono(result.getString(3));
-                lista_cli.add(cli);
+                listaClientes.add(cli);
             }
+        con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return lista_cli;
+        return listaClientes;
     }
 
     @Override
     public void insertarClientes(Cliente cliente) {
         try {
             conectar();
-            state.executeUpdate("INSERT INTO cliente VALUES(NULL, '" + cliente.getNombre() + ", "+cliente.getTelefono()+"');");
+            state.executeUpdate("INSERT INTO cliente VALUES(NULL, '" + cliente.getNombre() + "', '"+cliente.getTelefono()+"');");
             con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
