@@ -2,7 +2,7 @@
 package negocio;
 
 public class Venta {
-    private String codigo;
+    private int codigo;
     private String descripcion;
     private int precio;
     private int cantidad;
@@ -12,7 +12,7 @@ public class Venta {
     public Venta() {
     }
 
-    public Venta(String codigo, String descripcion, int precio, int cantidad, String fechaHoraVenta, boolean descuento) {
+    public Venta(int codigo, String descripcion, int precio, int cantidad, String fechaHoraVenta, boolean descuento) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -21,11 +21,11 @@ public class Venta {
         this.descuento = descuento;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
