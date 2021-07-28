@@ -7,5 +7,5 @@ import negocio.Venta;
 public interface IConsultasVenta {
     public void insertarVenta(Venta venta);
    
-    public ArrayList<Venta> listarVenta(); 
+    public ArrayList<Venta> listarVentas(); 
 }
